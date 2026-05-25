@@ -1,33 +1,42 @@
 package com.example.demo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Patient {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
+
     private int age;
+
     private String disease;
 
+    // Empty Constructor
     public Patient() {
     }
 
-    public Patient(String id, String name, int age, String disease) {
-        this.id = id;
+    // Parameterized Constructor
+    public Patient(String name, int age, String disease) {
+
         this.name = name;
         this.age = age;
         this.disease = disease;
     }
 
-    public String getId() {
+    // Getters and Setters
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
